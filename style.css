@@ -1,0 +1,190 @@
+  ::selection {
+    background: transparent;
+    cursor: pointer;
+  }
+
+  * {
+    transition: all .3s;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Scheherazade New', serif;
+    background: #fbfbfbec;
+    overflow: hidden;
+    transition: all .3s;
+  }
+
+  .header {
+    position: relative;
+    width: 100%;
+    height: clamp(450px, 30vh, 430px);
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .background-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    z-index: 0;
+  }
+
+  .header h1 {
+    color: #dcbf01a9;
+    text-shadow: 10px -7px 2px #fcf5a375;
+    font-size: 150px;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    position: absolute;
+    right: 50px;
+    top: 4%;
+    margin-top: 0;
+    border-bottom: solid #ffffffb0 4px;
+    border-radius: 2px;
+    width: 70%;
+  }
+
+  .body-content {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    font-family: 'Scheherazade New', serif;
+    color: #eee;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .body-content .ayah {
+    background: #fbfbfbec;
+    padding: 30px 35px;
+    width: 98%;
+    line-height: 1.8;
+    box-shadow: 0 0 15px rgba(255 255 255 / 0.1);
+    cursor: default;
+    position: absolute;
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .body-content .ayah.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+    box-shadow: 0 12px 30px rgba(255 255 255 / 0.3);
+  }
+
+  .body-content .ayah:hover {
+    transform: translateX(-50%) translateY(-6px);
+    box-shadow: 0 15px 40px rgba(255 255 255 / 0.4);
+  }
+
+
+  .body-content .ayah h2 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #000000bb;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    user-select: text;
+  }
+
+  .body-content .ayah p {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: #0056c69d;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-weight: 700;
+    user-select: text;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .body-content .ayah span {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    color: #000000;
+    display: block;
+    text-align: right;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    user-select: text;
+  }
+
+  .start-reading-btn {
+    display: inline-block;
+    margin: 10px 0 0 60px;
+    padding: 20px 40px;
+    background-color: #1e950075;
+    color: #121212;
+    font-weight: 700;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    white-space: nowrap;
+  }
+
+  .body-content .ayah.active .start-reading-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .start-reading-btn:hover {
+    background-color: #dcbf01a9;
+    color: #000;
+  }
+
+  footer{
+    background: #000;
+    height: 30px;
+    
+  }
+
+  @media (max-width: 1098px) {
+    .header {
+      height: clamp(330px, 25vh, 430px);
+    }
+
+    .header h1 {
+      width: 85%;
+      font-size: clamp(5.5rem, 11vw, 20rem);
+      right: 7%;
+      top: 6%;
+      border-bottom-width: 3px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .header h1 {
+      width: 90%;
+      font-size: clamp(3.5rem, 5vw, 3rem);
+      right: 5%;
+      top: 8%;
+      text-wrap: nowrap;
+      border-bottom-width: 2px;
+    }
+
+    .header {
+      height: clamp(200px, 25vh, 330px);
+    }
+  }
